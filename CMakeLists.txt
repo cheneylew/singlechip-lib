@@ -1,0 +1,21 @@
+cmake_minimum_required(VERSION 3.19)
+#project(8051)
+
+#function(ihx_to_hex bin)
+#    add_custom_command(TARGET ${bin} POST_BUILD COMMAND  packihx ${bin}.ihx > ${bin}.hex)
+#endfunction(ihx_to_hex)
+#include_directories(8051 "/usr/local/Cellar/sdcc/4.1.0/share/sdcc/include/mcs51/")
+#target_link_libraries(8051 "/usr/local/Cellar/sdcc/4.1.0/share/sdcc/lib/small/mcs51.lib")
+#add_subdirectory("/usr/local/Cellar/sdcc/4.1.0/share/sdcc/include/mcs51")
+
+#set(CMAKE_C_STANDARD 99)
+#include_directories(SYSTEM /usr/local/Cellar/sdcc/4.1.0/share/sdcc/lib)
+#add_executable(main.c)
+
+include(CMakeCInformation)
+set(CMAKE_C_OUTPUT_EXTENSION .o)
+set(CMAKE_C_COMPILER sdcc)
+include (Platform/Generic-SDCC-C)
+set(CMAKE_C_OUTPUT_EXTENSION .o)
+project(Hello_World C)
+ADD_EXECUTABLE(hello main.c define.h)
