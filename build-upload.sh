@@ -1,6 +1,6 @@
 rm -rf build/*
 cd build
-sdcc ../main.c
+sdcc ../src/main.c
 if [ ! -f "./main.ihx" ];
 then
     echo "编译失败！"
