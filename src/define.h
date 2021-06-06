@@ -4,27 +4,44 @@
 
 #include <8052.h>
 
+#ifndef __DEFINE_H_
+#define __DEFINE_H_
+
 typedef signed char int8;
 typedef signed int int16;
 typedef signed long int32;
 typedef unsigned char uint8;
 typedef unsigned int uint16;
+typedef unsigned int uint;
 typedef unsigned long uint32;
+
+typedef unsigned char uchar;
+typedef unsigned char byte;
+
+typedef unsigned char u8;
+typedef unsigned char u16;
 
 #define sfr __sfr __at
 #define sbit __sbit __at
+#define bit __sbit __at
 #define code __code
 #define interrupt __interrupt
 
 //========= 延时 ============
-void delay_ms(unsigned int s) {
-
+void delay_ms(uint16 s) {
     unsigned int x;
-
     for (s; s > 0; s--) {
         x = 98;
         while (x--);
     }
+}
+
+/*******************************************************************************
+* 函 数 名         : delay
+* 函数功能		   : 延时函数，i=1时，大约延时10us
+*******************************************************************************/
+void delay_10us(uint16 i) {
+    while (i--);
 }
 
 //端口地址
@@ -236,3 +253,5 @@ void delay_ms(unsigned int s) {
 #define F0    F0
 #define AC    AC
 #define CY    CY
+
+#endif

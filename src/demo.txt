@@ -1,21 +1,4 @@
-#define L.P0    0x80
-#define L.SP    0x81
-#define L.DPL   0x82
-#define L.DPH   0x83
-#define L.PCON  0x87
-#define L.TCON  0x88
-#define L.TMOD  0x89
-#define L.TL0   0x8A
-#define L.TL1   0x8B
-#define L.TH0   0x8C
-#define L.TH1   0x8D
-#define L.P1    0x90
-#define L.SCON  0x98
-#define L.SBUF  0x99
-#define L.P2    0xA0
-#define L.IE    0xA8
-#define L.P3    0xB0
-#define L.IP    0xB8
-#define L.PSW   0xD0
-#define L.ACC   0xE0
-#define L.B     0xF0
+void Lcd1602_Delay1ms(uint c) //误差 0us
+{ uchar a,b;
+for (; c>0; c--)
+{ for (b=199;b>0;b--) { for(a=1;a>0;a--); } } }
